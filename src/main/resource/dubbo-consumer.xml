@@ -9,75 +9,12 @@
 
 
 	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
-	<dubbo:application name="sjtools-consumer"  />
+	<dubbo:application name="mytest-consumer"  />
 
 	<!-- 新版本dubbo接口配置-开发环境 使用multicast广播注册中心暴露发现服务地址 -->
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" timeout="100000"/>
 
-	<!--商品服务-->
-	<dubbo:reference id="productionAgentService" interface="com.biyao.productclient.agent.product.IProductionService" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="productSaleAgentService" interface="com.biyao.productclient.agent.product.IProductSaleService" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="productGroupAgent" interface="com.biyao.productclient.agent.product.IProductGroupAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="suAgentService" interface="com.biyao.productclient.agent.su.ISuAgentService" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="suMgrAgent" interface="com.biyao.productclient.agent.su.ISuMgrAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="productAddvalAgent" interface="com.biyao.productclient.agent.product.IProductAddvalAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="attributeService" interface="com.biyao.productclient.agent.category.IAttributeService" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="productInfoCacheAgent" interface="com.biyao.productclient.agent.product.IProductInfoCacheAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="productInfoMgrAgent" interface="com.biyao.productclient.agent.product.IProductInfoMgrAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="productExtendAgent" interface="com.biyao.productclient.agent.product.IProductExtendAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="productMqMgrAgent" interface="com.biyao.productclient.agent.product.IProductMqMgrAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="categoryAgent" interface="com.biyao.productclient.agent.category.ICategoryAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="suCacheAgent" interface="com.biyao.productclient.agent.su.ISuCacheAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="suSpecQueryAgent" interface="com.biyao.productclient.agent.su.ISuSpecQueryAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-
-	<!--商品服务 商品贯通-->
-	<dubbo:reference id="productDetailParamAgent" interface="com.biyao.productclient.agent.product.IProductDetailParamAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<dubbo:reference id="productPriceValidityAgent" interface="com.biyao.productclient.agent.product.IProductPriceValidityAgent" version="${dubbo.consumer.productsoa.version}" group="${dubbo.consumer.productsoa.group}" owner="sjtask" timeout="30000" check="false"/>
-	<!--渠道SOA -->
-	<dubbo:reference id="saleChannelAgent" interface="com.biyao.channelclient.agent.channel.ISaleChannelAgent" version="${dubbo.consumer.channelsoa.version}" group="${dubbo.consumer.channelsoa.group}" owner="by_sj" timeout="30000" check="false"/>
-	<dubbo:reference id="saleChannelMgrAgent" interface="com.biyao.channelclient.agent.channel.ISaleChannelMgrAgent" version="${dubbo.consumer.channelsoa.version}" group="${dubbo.consumer.channelsoa.group}" owner="by_sj" timeout="60000" check="false"/>
-	<dubbo:reference id="saleChannelToCAgent" interface="com.biyao.channelclient.agent.channel.ISaleChannelToCAgent" version="${dubbo.consumer.channelsoa.version}" group="${dubbo.consumer.channelsoa.group}" owner="by_sj" timeout="30000" check="false"/>
-
-	<!--csuppliersoa -->
-	<dubbo:reference id="supplierInfoMgrAgent" interface="com.biyao.csupplierclient.agent.supplier.ISupplierInfoMgrAgent" version="${dubbo.consumer.csuppliersoa.version}" group="${dubbo.consumer.csuppliersoa.group}" owner="by_sj" timeout="30000" check="false" retries="0" />
-	<dubbo:reference id="supplierInfoCacheAgent" interface="com.biyao.csupplierclient.agent.supplier.ISupplierInfoCacheAgent" version="${dubbo.consumer.csuppliersoa.version}" group="${dubbo.consumer.csuppliersoa.group}" owner="by_sj" timeout="30000" check="false" retries="0" />
-	<dubbo:reference id="addressMgrAgent" interface="com.biyao.csupplierclient.agent.address.IAddressMgrAgent" version="${dubbo.consumer.csuppliersoa.version}" group="${dubbo.consumer.csuppliersoa.group}" owner="by_sj" timeout="30000" check="false" retries="0" />
-
-	<!--pspsoa -->
-	<dubbo:reference id="toggroupProductMgrAgent" interface="com.biyao.pspsoaclient.agent.product.IToggroupProductMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-	<dubbo:reference id="toggroupProductQueryAgent" interface="com.biyao.pspsoaclient.agent.product.IToggroupProductQueryAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-	<dubbo:reference id="toggroupSupplierMgrAgent" interface="com.biyao.pspsoaclient.agent.product.IToggroupSupplierMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-	<!--pspsoa 一起拼历史数据-->
-	<dubbo:reference id="toggroupProductHistoryAgent" interface="com.biyao.pspsoaclient.agent.product.IToggroupProductHistoryAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-
-	<dubbo:reference id="privilegeAmountProductMgrAgent" interface="com.biyao.pspsoaclient.agent.product.IPrivilegeAmountProductMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="120000" check="false" retries="0"/>
-
-	<!--pspsoa 特权金-->
-	<dubbo:reference id="promotionProductMgrAgent" interface="com.biyao.pspsoaclient.agent.product.IPromotionProductMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-	<dubbo:reference id="privilegeAmountSuQueryAgent" interface="com.biyao.pspsoaclient.agent.product.IPrivilegeAmountSuQueryAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="120000" check="false" retries="0"/>
-	<dubbo:reference id="iPromotionMqLogMgrAgent" interface="com.biyao.pspsoaclient.agent.product.IPromotionMqLogMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="120000" check="false" retries="0"/>
-	<dubbo:reference id="iFriendHelpBizProductMgrAgent" interface="com.biyao.pspsoaclient.agent.promotion.IFriendHelpBizProductMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="120000" check="false" retries="0"/>
-
-	<!--suppliersoa -->
-	<dubbo:reference id="iSupplierInfoAgentService" interface=" com.biyao.supplierclient.agent.supplier.ISupplierInfoAgentService" version="${dubbo.consumer.suppliersoa.version}" group="${dubbo.consumer.suppliersoa.group}" owner="by_sj" timeout="20000" check="false"/>
-	<dubbo:reference id="iSupplierCorpQualExpireHistoryAgent" interface=" com.biyao.supplierclient.agent.supplier.ISupplierCorpQualExpireHistoryAgent" version="${dubbo.consumer.suppliersoa.version}" group="${dubbo.consumer.suppliersoa.group}" owner="by_sj" timeout="120000" check="false"/>
-
-	<!--manusoa -->
-	<dubbo:reference id="iManuMgrAgent" interface="com.biyao.manuclient.agent.manufacture.IManuMgrAgent" version="1.0.0" group="${dubbo.consumer.manusoa.group}" owner="by_sj" timeout="20000" check="false"/>
-
-	<!--商品池解耦-->
-	<dubbo:reference id="promotionSupplierProductMgrAgent" interface="com.biyao.pspsoaclient.agent.promotion.IPromotionSupplierProductMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="120000" check="false" retries="0"/>
-	<dubbo:reference id="toggroupBizProductMgrAgent" interface="com.biyao.pspsoaclient.agent.promotion.IToggroupBizProductMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="120000" check="false" retries="0"/>
-	<dubbo:reference id="privilegeAmountBizProductMgrAgent" interface="com.biyao.pspsoaclient.agent.promotion.IPrivilegeAmountBizProductMgrAgent" version="1.0.0" group="${dubbo.consumer.pspsoa.group}" owner="sjtask" timeout="120000" check="false" retries="0"/>
-	<!--cpspsoa -->
-	<dubbo:reference id="promotionBizProductCacheHistoryAgent" interface="com.biyao.cpspsoaclient.agent.history.IPromotionBizProductCacheHistoryAgent" version="1.0.0" group="${dubbo.consumer.cpspsoa.group}" owner="sjtask" timeout="180000" check="false" retries="0"/>
-	<dubbo:reference id="toggroupSuCacheQueryAgent" interface="com.biyao.cpspsoaclient.agent.promotion.toggroup.IToggroupSuCacheQueryAgent" version="1.0.0" group="${dubbo.consumer.cpspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-	<dubbo:reference id="toggroupProductCacheQueryAgent" interface="com.biyao.cpspsoaclient.agent.promotion.toggroup.IToggroupProductCacheQueryAgent" version="1.0.0" group="${dubbo.consumer.cpspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-	<dubbo:reference id="toggroupProductCacheMgrAgent" interface="com.biyao.cpspsoaclient.agent.promotion.toggroup.IToggroupProductCacheMgrAgent" version="1.0.0" group="${dubbo.consumer.cpspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-	<dubbo:reference id="promotionBizProductCacheMgrAgent" interface="com.biyao.cpspsoaclient.agent.promotion.biz.IPromotionBizProductCacheMgrAgent" version="1.0.0" group="${dubbo.consumer.cpspsoa.group}" owner="sjtask" timeout="60000" check="false" retries="0"/>
-
-
-	<!--bfs的dubbo接口配置-->
-	<dubbo:reference id="fastDFSImageDubboService" interface="com.by.fastdfs.soa.dubbo.client.image.FastDFSImageDubboService" version="${dubbo.bfs.version}" group="${dubbo.bfs.group}" owner="fastDFS" timeout="10000" check="false"/>
+	<!--作为消费之接口配置接口配置-->
+	<dubbo:reference id="fastDFSImageDubboService" interface="com." version="${dubbo.bfs.version}" group="${dubbo.bfs.group}" owner="fastDFS" timeout="10000" check="false"/>
 
 </beans>

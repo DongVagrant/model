@@ -41,14 +41,9 @@
 	<!-- 自动切面 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 
-	<!-- 必要业务错误码 -->
-	<import resource="classpath:errorInfo.xml" />
-
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 	<!-- 注解处理器  -->
-	<bean class="com.by.profiler.annotation.Annotation">
-	    <property name="appId" value="10026"></property>
-	</bean>
+
 
 
 	<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">

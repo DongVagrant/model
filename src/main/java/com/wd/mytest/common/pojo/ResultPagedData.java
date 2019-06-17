@@ -1,9 +1,9 @@
 package com.wd.mytest.common.pojo;
 
+import com.github.pagehelper.PageInfo;
+
 import java.io.Serializable;
 import java.util.List;
-
-import com.github.pagehelper.PageInfo;
 /**
  * 分页包装类
  *
@@ -29,9 +29,9 @@ public class ResultPagedData<T> implements Serializable{
 	 */
 	private Integer pageIndex = 1;
 	/**
-	 * 页大小  详见{@link Integer},{@link Constants}
+	 * 页大小
 	 */
-	private Integer pageSize = Constants.PAGE_SIZE;
+	private Integer pageSize = 200;
 
 	public ResultPagedData() {
 		super();
