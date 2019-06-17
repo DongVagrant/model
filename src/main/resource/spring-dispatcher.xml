@@ -44,11 +44,11 @@
 		<property name="suffix" value=".ftl" />
 		<property name="contentType" value="text/html;charset=UTF-8"></property>
 	</bean>
-	<!--&lt;!&ndash; 视图解析器 &ndash;&gt;-->
-	<!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-		<!--<property name="prefix" value="/WEB-INF/templates/"/>-->
-		<!--<property name="suffix" value=".jsp"/>-->
-	<!--</bean>-->
+	<!-- 视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/templates/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
 
 	<!-- 解决@ResponseBody注解直接返回对象并转换成JSON时出现406问题，同时解决了返回String类型乱码的问题（选配） -->
 	<mvc:annotation-driven>
